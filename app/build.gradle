@@ -30,12 +30,18 @@ dependencies {
     implementation 'androidx.core:core-ktx:1.1.0'
 
     implementation dep.retrofit
+    implementation dep.rxJavaCallAdapter
     implementation dep.rxjava
     implementation dep.rxandroid
     implementation dep.gson
     implementation dep.dagger
     implementation dep.okhttp
     implementation dep.mockk
+    implementation dep.daggerAndroid
+    implementation dep.gsonConverterFactory
+
+    annotationProcessor dep.daggerCompiler
+    annotationProcessor dep.daggerAndroidProcessor
 
     testImplementation dep.mockwebserver
     testImplementation 'junit:junit:4.12'

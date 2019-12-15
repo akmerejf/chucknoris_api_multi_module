@@ -6,16 +6,20 @@ ext {
     rxjava_version = '2.2.15'
     retrofit_version = '2.7.0'
     rxandroid_version = '2.1.1'
-    rxjava_call_adapter_version = ''
 
     dep = [
             gson: "com.google.code.gson:gson:$gson_version",
+            gsonConverterFactory: "com.squareup.retrofit2:converter-gson:$retrofit_version",
             dagger: "com.google.dagger:dagger:$dagger_version",
+            daggerCompiler: "com.google.dagger:dagger-compiler:$dagger_version",
+            daggerAndroid: "com.google.dagger:dagger-android:$dagger_version",
+            daggerAndroidProcessor: "com.google.dagger:dagger-android-processor:$dagger_version",
             okhttp: "com.squareup.okhttp3:okhttp:$okhttp_version",
             mockwebserver: "com.squareup.okhttp3:mockwebserver:$okhttp_version",
             rxjava: "io.reactivex.rxjava2:rxjava:$rxjava_version",
             rxandroid: "io.reactivex.rxjava2:rxandroid:$rxandroid_version",
-            retrofit: "com.squareup.retrofit2:adapter-rxjava2:$retrofit_version",
+            rxJavaCallAdapter: "com.squareup.retrofit2:adapter-rxjava2:$retrofit_version",
+            retrofit: "com.squareup.retrofit2:retrofit:$retrofit_version",
             mockk: "io.mockk:mockk:$mockk_version"
     ]
 }
