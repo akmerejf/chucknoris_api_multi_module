@@ -1,9 +1,9 @@
 apply plugin: 'com.android.application'
 
 apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
 
 apply plugin: 'kotlin-android-extensions'
-apply plugin: 'kotlin-kapt'
 apply plugin: "androidx.navigation.safeargs.kotlin"
 
 
@@ -42,7 +42,7 @@ dependencies {
     implementation dep.kotlinStdLib
     implementation dep.appCompat
     implementation dep.coreKtx
-    implementation dep.activityKtx
+    implementation "androidx.activity:activity-ktx:${activityKtx_version}"
     implementation dep.androidxFragment
 
     implementation dep.retrofit

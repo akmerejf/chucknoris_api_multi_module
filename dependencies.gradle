@@ -15,6 +15,7 @@ ext {
     supportV4_version = '1.0.0'
     lifeycleExtensions_version = '2.1.0'
     lifecycleViewmodel_version = '2.1.0'
+    kotlinStdLib_version = '1.0.0'
     appCompat_version = '1.1.0'
     coreKtx_version = '1.1.0'
     activityKtx_version = '1.1.0-rc03'
