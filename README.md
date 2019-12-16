@@ -1,5 +1,5 @@
 
-# Chuck Norris Api Android
+# ![Chuck Norris Api](https://api.chucknorris.io/) Android
 
 Android App with two views, one showing a list of Chuck Norris Jokes Categories.
 Another showing a random Chuck Norris Joke based on a chosen category.
@@ -61,7 +61,7 @@ then right click and select ```Run Tests in Java```
 
 ### Break down into end to end tests
 
-Testes are separated per architectural layer
+Tests are separated per architectural layer
 
 ### Repository
 ```
@@ -109,7 +109,7 @@ Testes are separated per architectural layer
     }
 ```
 
-All tests share common schedulers and mock dependêncies
+All tests share common schedulers and mock dependencies
 
 ## Authors
 
