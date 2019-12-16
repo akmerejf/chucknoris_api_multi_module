@@ -8,6 +8,7 @@ This project uses MVVM, Usecases, Repositories and RxJava2, Retrofit2, Dagger2, 
 
 ### Architectural approach
 
+
 ![mvvm](https://github.com/akmerejf/chucknorris_api_android_app/blob/master/arquitetura_mvvm.png)
 
 
@@ -16,7 +17,14 @@ This project uses MVVM, Usecases, Repositories and RxJava2, Retrofit2, Dagger2, 
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+Clone this repo to your local machine and open it on Android Studio.
+Wait until gradle sync completes, then build the project:
+
+### on Mac and Linux
+> open terminal at project directory
+``` ./gradlew build ```
+
+> run the tests
 
 ### Prerequisites
 
