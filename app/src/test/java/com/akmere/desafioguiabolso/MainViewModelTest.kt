@@ -25,6 +25,7 @@ class MainViewModelTest {
 
     private lateinit var schedulerProvider: TrampolineSchedulerProvider
     private lateinit var viewModel: MainViewModel
+
     @get:Rule
     val instantTaskExecutorRule = InstantTaskExecutorRule()
 

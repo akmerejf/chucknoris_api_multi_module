@@ -3,16 +3,10 @@ package com.akmere.desafioguiabolso.presentation
 import android.annotation.SuppressLint
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
 import com.akmere.desafioguiabolso.common.BaseSchedulerProvider
 import com.akmere.desafioguiabolso.common.BaseViewModel
-import com.akmere.desafioguiabolso.common.addToCompositeDisposable
 import com.akmere.desafioguiabolso.domain.usecase.GetChuckNorrisJokeCategoryList
 import io.reactivex.disposables.CompositeDisposable
-import io.reactivex.observers.DisposableObserver
-import io.reactivex.observers.DisposableSingleObserver
-import java.io.IOException
-import java.lang.Exception
 import javax.inject.Inject
 
 class MainViewModel @Inject constructor(
