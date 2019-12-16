@@ -25,20 +25,18 @@ class ChuckNorrisRepositoryTest {
     private lateinit var api: ChuckNorrisApi
 
     private lateinit var server: MockWebServer
-    private lateinit var schedulerProvider: TrampolineSchedulerProvider
     private lateinit var chuckNorrisRepository: ChuckNorrisJokeRepositoryContract
 
     @Before
     fun setup() {
         MockKAnnotations.init(this)
         server = MockWebServer()
-        schedulerProvider = TrampolineSchedulerProvider()
-        chuckNorrisRepository = ChuckNorrisRepository(api, schedulerProvider)
+        chuckNorrisRepository = ChuckNorrisRepository(api)
         server.start()
     }
 
     @Test
-    fun fetchCategoriesShouldRequestCategories() {
+    fun fetchCategoriesShouldCallRequestCategories() {
         every { api.requestCategories() } returns Observable.just(listOf())
 
         chuckNorrisRepository.fetchCategories()

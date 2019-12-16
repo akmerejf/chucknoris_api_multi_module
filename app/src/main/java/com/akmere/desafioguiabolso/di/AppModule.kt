@@ -1,15 +1,13 @@
 package com.akmere.desafioguiabolso.di
 
 import android.content.Context
-import android.content.SharedPreferences
 import com.akmere.desafioguiabolso.GuiabolsoApp
 import com.akmere.desafioguiabolso.common.NetworkModule
-import com.akmere.desafioguiabolso.common.RxSchedulers
+import com.akmere.desafioguiabolso.common.SchedulerProvider
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import dagger.Module
 import dagger.Provides
-import io.reactivex.Scheduler
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import javax.inject.Singleton
@@ -27,9 +25,9 @@ class AppModule {
 
     @Provides
     @Singleton
-    fun providesRxSchedulers() = RxSchedulers(
+    fun providesRxSchedulers() = SchedulerProvider(
         io = Schedulers.io(),
-        main = AndroidSchedulers.mainThread(),
+        ui = AndroidSchedulers.mainThread(),
         computation = Schedulers.computation()
     )
 
