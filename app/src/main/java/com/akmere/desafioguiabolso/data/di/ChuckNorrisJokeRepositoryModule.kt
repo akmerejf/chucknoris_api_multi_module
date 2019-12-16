@@ -6,7 +6,7 @@ import com.akmere.desafioguiabolso.data.source.ChuckNorrisApi
 import dagger.Module
 import dagger.Provides
 
-@Module
+@Module(includes = [NetworkServiceModule::class])
 class ChuckNorrisJokeRepositoryModule{
     @Provides
     fun providesChuckNorrisJokeRepository(api: ChuckNorrisApi): ChuckNorrisJokeRepositoryContract =

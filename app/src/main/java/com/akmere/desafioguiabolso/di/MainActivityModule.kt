@@ -7,6 +7,7 @@ import com.akmere.desafioguiabolso.presentation.MainViewModel
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
+import io.reactivex.disposables.CompositeDisposable
 
 @Module(includes = [ChuckNorrisJokeRepositoryModule::class])
 abstract class MainActivityModule {

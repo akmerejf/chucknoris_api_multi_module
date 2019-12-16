@@ -5,15 +5,14 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.akmere.desafioguiabolso.common.BaseSchedulerProvider
 import com.akmere.desafioguiabolso.common.BaseViewModel
+import com.akmere.desafioguiabolso.common.SchedulerProvider
 import com.akmere.desafioguiabolso.domain.usecase.GetChuckNorrisJokeCategoryList
-import io.reactivex.disposables.CompositeDisposable
 import javax.inject.Inject
 
 class MainViewModel @Inject constructor(
-    compositeDisposable: CompositeDisposable,
     private val getChuckNorrisJokeCategoryList: GetChuckNorrisJokeCategoryList,
-    private val schedulerProvider: BaseSchedulerProvider
-) : BaseViewModel(compositeDisposable) {
+    private val schedulerProvider: SchedulerProvider
+) : BaseViewModel() {
 
     private val mCategoriesSuccessStatus = MutableLiveData<List<String>>()
     val categoriesSuccessStatus: LiveData<List<String>>
@@ -31,12 +30,12 @@ class MainViewModel @Inject constructor(
             .subscribe({
                 try {
                     mCategoriesSuccessStatus.value = it.getOrThrow()
-                }catch (t: Throwable){
+                } catch (t: Throwable) {
                     mCategoriesErrorStatus.value = t.message
                 }
             }, {
                 mCategoriesErrorStatus.value = it.message
-            } )
+            })
 
     }
 }

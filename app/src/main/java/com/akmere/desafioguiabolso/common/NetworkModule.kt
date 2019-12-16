@@ -8,6 +8,7 @@ import okhttp3.Cache
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
+import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
@@ -20,15 +21,15 @@ class NetworkModule {
         Retrofit.Builder()
             .client(httpClient)
             .baseUrl(URLS.CHUCK_NORRIS)
+            .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .addConverterFactory(GsonConverterFactory.create(gson))
             .build()
 
     @Provides
     @Singleton
-    fun providesHttpClient(interceptor: Interceptor, cache: Cache): OkHttpClient =
+    fun providesHttpClient(cache: Cache): OkHttpClient =
         OkHttpClient
             .Builder()
-            .addNetworkInterceptor(interceptor)
             .connectTimeout(10, TimeUnit.SECONDS)
             .writeTimeout(30, TimeUnit.SECONDS)
             .readTimeout(20, TimeUnit.SECONDS)

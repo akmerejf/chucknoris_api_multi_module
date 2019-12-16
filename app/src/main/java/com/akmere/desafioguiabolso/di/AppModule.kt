@@ -6,6 +6,8 @@ import com.akmere.desafioguiabolso.common.NetworkModule
 import com.akmere.desafioguiabolso.common.SchedulerProvider
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
+import com.squareup.picasso.OkHttp3Downloader
+import com.squareup.picasso.Picasso
 import dagger.Module
 import dagger.Provides
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -33,5 +35,21 @@ class AppModule {
 
     @Provides
     @Singleton
+    fun providesPicasso(context: Context, okHttp3Downloader: OkHttp3Downloader) =
+        Picasso.Builder(context)
+            .downloader(okHttp3Downloader)
+            .build()
+
+
+    @Provides
+    @Singleton
+    fun providesOkHttp3Downloader(context: Context) =
+        OkHttp3Downloader(context)
+
+
+    @Provides
+    @Singleton
     fun providesGson(): Gson = GsonBuilder().create()
+
+
 }
