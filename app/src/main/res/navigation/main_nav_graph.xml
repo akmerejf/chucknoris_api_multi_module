@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_nav_graph"
+    app:startDestination="@id/categoryListFragment">
+
+    <fragment
+        android:id="@+id/jokeDetailsFragment"
+        android:name="com.akmere.desafioguiabolso.presentation.JokeDetailsFragment"
+        android:label="fragment_joke_details"
+        tools:layout="@layout/fragment_joke_details" >
+        <argument
+            android:name="category"
+            app:argType="string"
+            />
+    </fragment>
+    <fragment
+        android:id="@+id/categoryListFragment"
+        android:name="com.akmere.desafioguiabolso.presentation.CategoryListFragment"
+        android:label="CategoryListFragment"
+
+        tools:layout="@layout/fragment_category_list">
+        <action
+            android:id="@+id/action_categoryListFragment_to_jokeDetailsFragment"
+            app:destination="@id/jokeDetailsFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/fragment_open_enter"
+            app:popExitAnim="@anim/fragment_open_exit"
+            app:popUpTo="@+id/categoryListFragment">
+
+        </action>
+    </fragment>
+</navigation>

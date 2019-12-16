@@ -1,7 +1,10 @@
 package com.akmere.desafioguiabolso.data.model
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
 
+@Parcelize
 data class ChuckNorrisJoke(
     @SerializedName("categories")
     val categories: List<String>,
@@ -17,4 +20,4 @@ data class ChuckNorrisJoke(
     val url: String,
     @SerializedName("value")
     val value: String
-)
+) : Parcelable

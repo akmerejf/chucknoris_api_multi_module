@@ -2,6 +2,7 @@ package com.akmere.desafioguiabolso.di
 
 import android.content.Context
 import com.akmere.desafioguiabolso.GuiabolsoApp
+import com.akmere.desafioguiabolso.common.BaseSchedulerProvider
 import com.akmere.desafioguiabolso.common.NetworkModule
 import com.akmere.desafioguiabolso.common.SchedulerProvider
 import com.google.gson.Gson
@@ -27,7 +28,7 @@ class AppModule {
 
     @Provides
     @Singleton
-    fun providesRxSchedulers() = SchedulerProvider(
+    fun providesRxSchedulers(): BaseSchedulerProvider = SchedulerProvider(
         io = Schedulers.io(),
         ui = AndroidSchedulers.mainThread(),
         computation = Schedulers.computation()

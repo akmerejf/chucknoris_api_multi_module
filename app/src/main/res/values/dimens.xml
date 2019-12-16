@@ -1,3 +1,4 @@
 <resources>
     <dimen name="fab_margin">16dp</dimen>
+    <dimen name="chuck_norris_image_margin_bottom">150dp</dimen>
 </resources>

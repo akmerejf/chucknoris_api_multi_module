@@ -2,29 +2,26 @@ package com.akmere.desafioguiabolso
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.Observer
+import com.akmere.desafioguiabolso.common.BaseSchedulerProvider
 import com.akmere.desafioguiabolso.domain.usecase.GetChuckNorrisJokeCategoryList
-import com.akmere.desafioguiabolso.presentation.MainViewModel
+import com.akmere.desafioguiabolso.presentation.CategoryListViewModel
 import io.mockk.MockKAnnotations
 import io.mockk.every
 import io.mockk.impl.annotations.MockK
 import io.mockk.mockk
 import io.mockk.verify
 import io.reactivex.Single
-import io.reactivex.disposables.CompositeDisposable
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 
-class MainViewModelTest {
+class CategoryListViewModelTest {
 
     @MockK
     private lateinit var getChuckNorrisJokeCategoryList: GetChuckNorrisJokeCategoryList
 
-    @MockK
-    private lateinit var compositeDisposable: CompositeDisposable
-
-    private lateinit var schedulerProvider: TrampolineSchedulerProvider
-    private lateinit var viewModel: MainViewModel
+    private lateinit var schedulerProvider: BaseSchedulerProvider
+    private lateinit var viewModel: CategoryListViewModel
 
     @get:Rule
     val instantTaskExecutorRule = InstantTaskExecutorRule()
@@ -34,7 +31,7 @@ class MainViewModelTest {
         MockKAnnotations.init(this)
         schedulerProvider = TrampolineSchedulerProvider()
         viewModel =
-            MainViewModel(compositeDisposable, getChuckNorrisJokeCategoryList, schedulerProvider)
+            CategoryListViewModel(getChuckNorrisJokeCategoryList, schedulerProvider)
     }
 
     @Test

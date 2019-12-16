@@ -14,9 +14,10 @@ class GuiabolsoApp : Application(), HasAndroidInjector {
 
     override fun androidInjector(): AndroidInjector<Any> = androidInjector
 
-
     override fun onCreate() {
         super.onCreate()
         DaggerAppComponent.factory().create(this).inject(this)
     }
+
+
 }
