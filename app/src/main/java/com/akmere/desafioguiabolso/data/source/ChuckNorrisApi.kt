@@ -12,5 +12,5 @@ interface ChuckNorrisApi {
 
     @GET(URLS.CATEGORY)
     @Headers("Content-Type: application/json")
-    fun requestCategories(): Observable<List<String>>
+    fun requestCategories(): Single<List<String>>
 }

@@ -1,14 +1,8 @@
 package com.akmere.desafioguiabolso.data.repository
 
-import com.akmere.desafioguiabolso.common.BaseSchedulerProvider
 import com.akmere.desafioguiabolso.common.Repository
-import com.akmere.desafioguiabolso.common.SchedulerProvider
 import com.akmere.desafioguiabolso.data.source.ChuckNorrisApi
-import io.reactivex.Observable
-import io.reactivex.Observer
 import io.reactivex.Single
-import io.reactivex.disposables.Disposable
-import io.reactivex.observers.DisposableSingleObserver
 import javax.inject.Inject
 
 class ChuckNorrisRepository @Inject constructor(
@@ -16,7 +10,7 @@ class ChuckNorrisRepository @Inject constructor(
     Repository<ChuckNorrisApi>(api),
     ChuckNorrisJokeRepositoryContract {
 
-    override fun fetchCategories(): Observable<List<String>> {
+    override fun fetchCategories(): Single<List<String>> {
         return api.requestCategories()
     }
 

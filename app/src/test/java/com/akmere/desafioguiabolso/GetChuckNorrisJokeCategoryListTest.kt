@@ -6,7 +6,7 @@ import io.mockk.MockKAnnotations
 import io.mockk.every
 import io.mockk.impl.annotations.MockK
 import io.mockk.verify
-import io.reactivex.Observable
+import io.reactivex.Single
 import io.reactivex.observers.TestObserver
 import org.junit.Before
 import org.junit.Test
@@ -32,7 +32,7 @@ class GetChuckNorrisJokeCategoryListTest {
 
     @Test
     fun invokeShouldFetchJokeCategoriesOnce() {
-        every { chuckNorrisRepository.fetchCategories() } returns Observable.just(listOf())
+        every { chuckNorrisRepository.fetchCategories() } returns Single.just(listOf())
 
         usecase()
 
@@ -44,7 +44,7 @@ class GetChuckNorrisJokeCategoryListTest {
 
     @Test
     fun whenFetchCategoriesIsSuccessShouldReturnResultSuccess() {
-        every { chuckNorrisRepository.fetchCategories() } returns Observable.just(listOf())
+        every { chuckNorrisRepository.fetchCategories() } returns Single.just(listOf())
 
         val observable = usecase()
         val testObserver = TestObserver<Result<List<String>>>()
@@ -56,7 +56,7 @@ class GetChuckNorrisJokeCategoryListTest {
 
     @Test
     fun whenFetchCategoriesIsErrorShouldReturnResultFailure() {
-        every { chuckNorrisRepository.fetchCategories() } returns Observable.error(IOException())
+        every { chuckNorrisRepository.fetchCategories() } returns Single.error(IOException())
 
         val observable = usecase()
         val testObserver = TestObserver<Result<List<String>>>()

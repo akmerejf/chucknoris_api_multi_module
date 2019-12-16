@@ -11,5 +11,5 @@ import dagger.Provides
 class ChuckNorrisJokeRepositoryModule{
     @Provides
     fun providesChuckNorrisJokeRepository(api: ChuckNorrisApi, schedulerProvider: SchedulerProvider): ChuckNorrisJokeRepositoryContract =
-        ChuckNorrisRepository(api, schedulerProvider)
+        ChuckNorrisRepository(api)
 }

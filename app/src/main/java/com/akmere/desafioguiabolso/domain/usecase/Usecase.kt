@@ -1,7 +1,7 @@
 package com.akmere.desafioguiabolso.domain.usecase
 
-import io.reactivex.Observable
+import io.reactivex.Single
 
 interface Usecase<T> {
-    operator fun invoke(): Observable<Result<List<String>>>
+    operator fun invoke(): Single<Result<List<String>>>
 }

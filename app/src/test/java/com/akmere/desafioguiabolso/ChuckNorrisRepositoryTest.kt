@@ -7,7 +7,7 @@ import io.mockk.MockKAnnotations
 import io.mockk.every
 import io.mockk.impl.annotations.MockK
 import io.mockk.verify
-import io.reactivex.Observable
+import io.reactivex.Single
 import io.reactivex.observers.TestObserver
 import okhttp3.mockwebserver.MockWebServer
 import org.junit.After
@@ -37,7 +37,7 @@ class ChuckNorrisRepositoryTest {
 
     @Test
     fun fetchCategoriesShouldCallRequestCategories() {
-        every { api.requestCategories() } returns Observable.just(listOf())
+        every { api.requestCategories() } returns Single.just(listOf())
 
         chuckNorrisRepository.fetchCategories()
 
@@ -47,7 +47,7 @@ class ChuckNorrisRepositoryTest {
     }
     @Test
     fun fetchCategoriesShouldComplete() {
-        every { api.requestCategories() } returns Observable.just(listOf())
+        every { api.requestCategories() } returns Single.just(listOf())
 
         val observable = chuckNorrisRepository.fetchCategories()
         val testObserver = TestObserver<List<String>>()
@@ -60,7 +60,7 @@ class ChuckNorrisRepositoryTest {
     fun whenNoConnectionFetchCategoriesShouldContainsIOException() {
         val noInternetErrorException = IOException()
 
-        every { api.requestCategories() } returns Observable.error(noInternetErrorException)
+        every { api.requestCategories() } returns Single.error(noInternetErrorException)
         val observable = chuckNorrisRepository.fetchCategories()
         val testObserver = TestObserver<List<String>>()
         observable.subscribe(testObserver)
