@@ -7,11 +7,12 @@ Another showing a random Chuck Norris Joke based on a chosen category.
 This project uses MVVM, Usecases, Repositories and RxJava2, Retrofit2, Dagger2, Livedata, Navigation Component... etc.
 
 ### Architectural approach
-[a relative link](arquitetura_mvvm.png)
+
+![mvvm](https://github.com/akmerejf/chucknorris_api_android_app/blob/master/arquitetura_mvvm.png)
 
 
 ### A complete list of external dependencies
-[a relative link](dependencies.gradle)
+![dependencies.gradle](https://github.com/akmerejf/chucknorris_api_android_app/blob/master/dependencies.gradle)
 
 ## Getting Started
 
