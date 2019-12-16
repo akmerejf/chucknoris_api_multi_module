@@ -1,5 +1,5 @@
 
-# ![Chuck Norris Api](https://api.chucknorris.io/) Android
+# [Chuck Norris Api](https://api.chucknorris.io/) Android
 
 Android App with two views, one showing a list of Chuck Norris Jokes Categories.
 Another showing a random Chuck Norris Joke based on a chosen category.
