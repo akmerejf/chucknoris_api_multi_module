@@ -19,16 +19,16 @@ class JokeDetailsFragment : BaseDaggerFragment(R.layout.fragment_joke_details) {
     }
 
     private fun observeInformations() {
-        viewModel.detailsSuccessStatus.observe(this, Observer { joke ->
+        viewModel.detailsSuccessStatus.observe(viewLifecycleOwner, Observer { joke ->
             joke_desc.text = joke.value
             joke_url.text = joke.url
             viewModel.showJokeImage(joke.iconUrl)
         })
-        viewModel.detailsErrorStatus.observe(this, Observer { message ->
+        viewModel.detailsErrorStatus.observe(viewLifecycleOwner, Observer { message ->
             Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
         })
 
-        viewModel.jokeImageStatus.observe(this, Observer { image ->
+        viewModel.jokeImageStatus.observe(viewLifecycleOwner, Observer { image ->
             chuck_norris_image.setImageBitmap(image)
         })
     }
